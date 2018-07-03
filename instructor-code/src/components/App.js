@@ -5,7 +5,6 @@ import { Route, Link } from 'react-router-dom';
 import FAQ from './About/FAQ/FAQ';
 import Company from './About/Company/Company';
 
-
 class App extends Component {
   render() {
     return (
@@ -13,14 +12,13 @@ class App extends Component {
         This is App.js
         <nav>
           <Link to="/">Home</Link>
-          <Link to="/About">About</Link>
+          <Link to="/about">About</Link>
         </nav>
-          <Route exact path="/" component = {Home}/>
-          <Route path="/About" render = {()=><About>
-              <Route path="/About/Faq" component={FAQ}/>
-              <Route path="/About/Company" component = {Company}/>
-            </About>}/>
-          
+        <Route path="/" exact component={Home} />
+        <Route path="/about" render={() => <About>
+          <Route path="/about/faq" component={FAQ} />
+          <Route path="/about/company" component={Company} />
+        </About>} />
       </div>
     );
   }
